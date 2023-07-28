@@ -1,0 +1,1358 @@
+* {
+    background-origin: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: monospace;
+    scroll-behavior: smooth;
+}
+
+*::selection {
+    background-color: white;
+    color: #95C11E;
+}
+
+.active {
+    color: #95C11E;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    /* overflow-x: auto; */
+}
+
+body::-webkit-scrollbar {
+    background-color: #95C11E;
+    display: block;
+    width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 50px;
+}
+
+#topnav {
+    display: flex;
+    /* background-color: black; */
+    position: fixed;
+    z-index: 89;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+    height: 100px;
+}
+
+.link-acv {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.link-acv a {
+    text-decoration: none;
+    text-transform: uppercase;
+    z-index: 13;
+    cursor: pointer;
+    font-weight: 550;
+    font-size: 1vw;
+}
+
+#topnav img {
+    height: 75px;
+    padding: 0 85px;
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+
+#nav {
+    display: flex;
+    gap: 53px;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-acv:hover {
+    border-bottom: 2px solid #95C11E;
+    transition: all ease 0.2s;
+    color: #95C11E;
+    transform: scale(1.1);
+}
+
+.link-acv a:hover {
+    transition: all ease 0.2s;
+    transform: scale(1.1);
+}
+
+.active {
+    border-bottom: 2px solid #95C11E;
+}
+
+.link-acv a:hover {
+    color: #95C11E;
+}
+
+#topnav img:hover {
+    transform: scale(0.9);
+}
+
+#hamburger {
+    position: absolute;
+    cursor: pointer;
+}
+
+#hamburger i:hover {
+    color: #95C11E;
+    scale: 0.95;
+}
+
+#hamburger i {
+    font-size: 28px;
+    transition: all ease 0.3s;
+    display: none;
+}
+
+#cursor {
+    height: 20px;
+    width: 20px;
+    background-color: #95C11E;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99;
+}
+
+#cursor-1 {
+    height: 340px;
+    width: 340px;
+    background-color: #96c11e55;
+    border-radius: 50%;
+    position: fixed;
+    filter: blur(75px);
+    z-index: 10;
+}
+
+video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    position: fixed;
+}
+
+#main {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    /* height: 100vh; */
+    /* z-index: 10; */
+    /*for used to dark the background */
+}
+
+#page-1 {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    z-index: 10;
+    flex-direction: column;
+}
+
+#page-1 #arrow {
+    height: 150px;
+    width: 150px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -2.3%;
+    border: 2px solid #95C11E;
+    bottom: 0%;
+    z-index: 15;
+    cursor: pointer;
+    border-radius: 100%;
+    transition: all ease 0.4s;
+    color: transparent;
+}
+
+#page-1 #arrow i {
+    font-size: 3vw;
+    font-weight: lighter;
+}
+
+#page-1 #arrow:hover {
+    scale: 0.5;
+    background-color: #95C11E;
+}
+
+#page-1 h1,
+h2,
+p {
+    text-transform: uppercase;
+}
+
+#page-1 h1 {
+    font-size: 8vw;
+    font-weight: 900;
+    position: relative;
+}
+
+#page-1 h1::before {
+    content: "EAT.DRINK.PLAY.";
+    position: absolute;
+    color: black;
+    top: -3px;
+    left: -3px;
+    z-index: -1;
+    -webkit-text-stroke: 1px #95C11E;
+}
+
+#page-1 h2 {
+    font-size: 2.7vw;
+    font-weight: bolder;
+    margin-top: 5px;
+    color: #95C11E;
+    margin-bottom: 10px;
+}
+
+#page-1 p {
+    font-weight: 500;
+    font-size: 1vw;
+    width: 50%;
+}
+
+#page-2 {
+    min-height: 100vh;
+    /* z-index: 10; */
+    width: 100%;
+}
+
+
+/* there are two ways to animate the text into automatic sliding test */
+
+
+/*method 1 */
+
+#scroller {
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow-x: auto;
+    /* overflow hidden also works for hide the scroll bar */
+    overflow-y: hidden;
+    position: relative;
+    z-index: 82;
+}
+
+
+/*use for hide the scroll bar that created from white hiding the overflow */
+
+#scroller::-webkit-scrollbar {
+    display: none;
+}
+
+.scroller-in {
+    white-space: nowrap;
+    display: inline-block;
+    animation-name: scroll;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#scroller h4 {
+    display: inline-block;
+    font-size: 9vw;
+    font-weight: 900;
+    /* white-space: nowrap; */
+    margin-right: 5px;
+    -webkit-text-stroke: 2px #95C11E;
+    /*for create the border on the test */
+    /* white-space: nowrap; */
+    color: transparent;
+    transition: all linear 0.5s;
+}
+
+#scroller h4:hover {
+    color: #95C11E;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+
+/*method 2 : by using marquee tag in html , it is a pre defined animated text . */
+
+#scroller-1 h4 {
+    white-space: nowrap;
+    display: inline-block;
+    font-size: 140px;
+    text-transform: uppercase;
+    transition: all linear 0.3s;
+    font-weight: 900;
+    -webkit-text-stroke: 2px #95C11E;
+    color: transparent;
+}
+
+#scroller-1 h4:hover {
+    color: #95C11E;
+}
+
+#scroll-1 {
+    z-index: 20;
+    position: relative;
+}
+
+#about-us {
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    margin-top: 4%;
+    justify-content: space-around;
+    position: relative;
+    /* overflow-x: hidden; */
+    align-items: center;
+    z-index: 20;
+}
+
+#about-us img {
+    object-fit: cover;
+    height: 220px;
+    width: 220px;
+    margin: 0px 80px;
+    border-radius: 10px;
+    /* position: relative; */
+    transition: 0.3s;
+    box-shadow: 0px 0px 19px 3px #95C11E;
+    animation-name: ani;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+#about-us img:hover {
+    transition: 0.3s;
+    box-shadow: 0px 0px 23px 4px #95C11E;
+}
+
+#about-us-in {
+    width: 42%;
+    text-align: center;
+}
+
+#about-us-in h3 {
+    font-size: 3vw;
+    font-weight: 900;
+    color: #95C11E;
+    margin-bottom: 17px;
+}
+
+#about-us-in p {
+    font-size: 0.9vw;
+    line-height: 18px;
+}
+
+#cards-container {
+    height: 65vh;
+    align-items: center;
+    margin-top: 5%;
+    justify-content: space-evenly;
+    position: relative;
+    z-index: 10;
+    display: flex;
+}
+
+.card {
+    height: 80%;
+    width: 24%;
+    /* overflow: hidden; */
+    border-radius: 20px;
+    /* box-shadow: 0px 0px 10px 0px #95C11E; */
+    /* background-color: red; */
+    z-index: 20;
+    background-size: cover;
+    transition: 0.4s;
+    margin: 50px 0;
+}
+
+@keyframes ani {
+    0% {
+        top: 0%;
+    }
+    50% {
+        top: 3%;
+    }
+    100% {
+        top: 0%
+    }
+}
+
+#card1 {
+    position: relative;
+    background-position: center;
+    animation-name: ani;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-toptracer-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+}
+
+#card2 {
+    position: relative;
+    background-position: center;
+    animation-name: ani;
+    animation-delay: -2s;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/hero-4-1024x1024.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+}
+
+#card3 {
+    position: relative;
+    background-position: center;
+    animation-name: ani;
+    animation-delay: -1.5s;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-lessons-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+}
+
+.overlay {
+    text-align: center;
+    background: linear-gradient(to left bottom, #648a36, #9fab23f2);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.overlay h4 {
+    color: black;
+    font-size: 2.2vw;
+    white-space: nowrap;
+    margin-top: 40px;
+    margin-bottom: -50px;
+    font-weight: 1000;
+    text-transform: uppercase;
+}
+
+.card:hover .overlay {
+    opacity: 1;
+    border-radius: 20px;
+    transition: 0.5s;
+    box-shadow: 0px 0px 18px 4px #809b1eee;
+    transform: scale(1.07);
+    /* transform: rotate3d()(1, 1, 0, 20deg); */
+}
+
+.overlay p {
+    line-height: 18px;
+    white-space: inherit;
+    height: 50%;
+    color: black;
+    margin: auto;
+    text-transform: lowercase;
+    width: 90%;
+    font-size: 1vw;
+    /* text-overflow: ellipsis; */
+}
+
+.card h1 {
+    text-align: center;
+}
+
+#green-div {
+    height: 30vh;
+    display: flex;
+    margin-top: 5%;
+    z-index: 30;
+    align-items: center;
+    background: linear-gradient(to left bottom, #119f3a, #ace022);
+    justify-content: space-between;
+}
+
+#green-div h1 {
+    width: 50%;
+    text-align: center;
+    font-size: 2vw;
+    color: black;
+    font-weight: 900;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+#green-div img {
+    height: 100%;
+    object-fit: cover;
+    width: 15%;
+}
+
+#page-3 {
+    height: 100vh;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    width: 100%;
+    z-index: 20;
+    /* background-color: black; */
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+#page-3>p {
+    font-size: 1.8vw;
+    font-weight: 900;
+    width: 60%;
+    text-align: center;
+}
+
+#page-3 img {
+    position: absolute;
+    height: 60px;
+}
+
+#page-3 #coln-1 {
+    top: 20%;
+    left: 13%;
+}
+
+#page-3 #coln-2 {
+    bottom: 20%;
+    right: 13%;
+}
+
+#page-4 {
+    height: 80vh;
+    display: flex;
+    /* z-index: 20; */
+    justify-content: center;
+    /* align-items: center; */
+    gap: 8%;
+    margin-top: 8%;
+}
+
+.elem-card {
+    border-radius: 10px;
+    height: 24%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    object-fit: cover;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 21%;
+}
+
+.elem-card img {
+    height: 100%;
+    border-radius: 10px;
+    width: 100%;
+    opacity: 0;
+    scale: 1.2;
+    transition: 0.5s;
+}
+
+.elem-card:hover img {
+    opacity: 1;
+    position: absolute;
+    /* -webkit-transform: scale(1.5); */
+    scale: 1;
+}
+
+
+/* zoom in out animation for image */
+
+#elem-card-1 {
+    background: linear-gradient(to left bottom, #38b55b, #daea28c6);
+    box-shadow: 0px 0px 18px 4px #7d8112cb;
+    animation-name: zoom;
+    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+#elem-card-2 {
+    background: linear-gradient(to left bottom, #38b55b, #daea28c6);
+    box-shadow: 0px 0px 18px 4px #7d8112cb;
+    animation-name: zoom;
+    animation-delay: 2s;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+#elem-card-3 {
+    background: linear-gradient(to left bottom, #38b55b, #daea28c6);
+    box-shadow: 0px 0px 18px 4px #7d8112cb;
+    animation-name: zoom;
+    animation-delay: 3s;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes zoom {
+    0% {
+        scale: 1;
+    }
+    50% {
+        scale: 1.2;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+#page-4>h1 {
+    position: absolute;
+    z-index: 20;
+    color: transparent;
+    font-size: 6vw;
+    bottom: 14.8%;
+    transition: 0.5s;
+    cursor: pointer;
+    -webkit-text-stroke: 1px #ace022;
+}
+
+#page-4>h1:hover {
+    z-index: 50;
+    font-size: 6.3vw;
+    color: #95C11E;
+    -webkit-text-stroke: 1px #95C11E;
+}
+
+.elem-card>h1 {
+    position: absolute;
+    text-transform: uppercase;
+    color: black;
+    z-index: 10;
+    font-size: 2vw;
+    font-weight: 900;
+}
+
+.elem-card:hover h1 {
+    color: white;
+}
+
+#footer {
+    height: 40vh;
+    width: 100%;
+    background: linear-gradient(to left bottom, #119f3a, #ace022);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    /* gap: -3vw; */
+    overflow-x: hidden;
+    /* padding-left: 100px; */
+}
+
+#footer>img {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 0;
+}
+
+#f1 img {
+    height: 100px;
+    transition: all ease 0.3s;
+}
+
+#f1 img:hover {
+    scale: 0.8;
+}
+
+#f1,
+#f2,
+#f3,
+#f4 {
+    width: fit-content;
+    position: relative;
+    z-index: 80;
+    cursor: pointer;
+}
+
+#f2 h1 {
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.8vw;
+    font-weight: 900;
+    white-space: nowrap;
+    margin-bottom: 8px;
+}
+
+#f3 h3 {
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.4vw;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    font-weight: 800;
+}
+
+#f4 h4 {
+    color: black;
+    font-size: 0.9vw;
+    font-weight: 600;
+    line-height: 14pxpx;
+    margin-bottom: 8px;
+}
+
+@media only screen and(min-width: 1299px),
+screen and (max-width:1300px) {
+    .card {
+        height: 77%;
+        width: 29%;
+    }
+}
+
+@media only screen and(min-width: 1249px),
+screen and (max-width:1250px) {
+    #about-us img {
+        object-fit: cover;
+        height: 200px;
+        width: 200px;
+        margin: 0px 30px;
+    }
+}
+
+@media only screen and(min-width: 1199px),
+screen and (max-width:1200px) {
+    .card {
+        height: 72%;
+        width: 27%;
+    }
+    #page-4>h1 {
+        bottom: 14.9%;
+    }
+}
+
+@media only screen and(min-width: 1099px),
+screen and (max-width:1100px) {}
+
+#page-4>h1 {
+    bottom: 15.4%;
+}
+
+@media only screen and(min-width: 999px),
+screen and (max-width:1000px) {
+    #topnav {
+        gap: 0px;
+    }
+    #nav {
+        gap: 45px;
+    }
+    .link-acv a {
+        font-size: 1.1vw;
+    }
+    #about-us-in h3 {
+        font-size: 3.5vw;
+    }
+    #about-us-in p {
+        font-size: 1vw;
+    }
+    #about-us img {
+        height: 185px;
+        width: 185px;
+        margin: 0px 50px;
+    }
+    .card {
+        height: 68%;
+        width: 29%;
+    }
+    .overlay p {
+        font-size: 1.1vw;
+    }
+    #page-4>h1 {
+        bottom: 15.5%;
+    }
+}
+
+@media only screen and(min-width: 899px),
+screen and (max-width:900px) {
+    #page-1 h2 {
+        font-size: 3.5vw;
+    }
+    #page-1 h1 {
+        font-size: 9vw;
+    }
+    #page-1 p {
+        font-size: 1.1vw;
+    }
+    #page-4>h1 {
+        bottom: 15.6%;
+    }
+    #page-1 #arrow {
+        height: 125px;
+        width: 125px;
+    }
+    #page-3 #coln-1 {
+        top: 23%;
+        left: 10%;
+    }
+    #page-3 #coln-2 {
+        bottom: 23%;
+        right: 11%;
+    }
+    #nav {
+        gap: 30px;
+    }
+    #topnav img {
+        height: 65px;
+        padding: 0 49px;
+    }
+    .link-acv a {
+        font-size: 1.2vw;
+    }
+}
+
+@media only screen and(min-width: 799px),
+screen and (max-width:800px) {
+    #page-1 h1 {
+        font-size: 9vw;
+    }
+    #page-1 h2 {
+        font-size: 3.5vw;
+    }
+    #page-1 p {
+        font-size: 1.2vw;
+    }
+    #about-us img {
+        height: 175px;
+        width: 175px;
+        margin: 0px 30px;
+    }
+    #about-us-in h3 {
+        font-size: 5vw;
+    }
+    #about-us-in p {
+        font-size: 1.2vw;
+    }
+    #page-4 {
+        height: 60vh;
+    }
+    .card {
+        height: 60%;
+        width: 29%;
+    }
+    #page-4>h1 {
+        bottom: 12%;
+    }
+    .elem-card {
+        height: 25%;
+        width: 25%;
+    }
+    .elem-card>h1 {
+        font-size: 2.5vw;
+    }
+    #footer {
+        height: 35vh;
+    }
+    #footer>img {
+        left: -35px;
+    }
+    #f1 img {
+        height: 80px;
+    }
+    #f2 h1 {
+        font-size: 2vw;
+        margin-bottom: 8px;
+    }
+    #f3 h3 {
+        font-size: 1.6vw;
+    }
+    #f4 h4 {
+        color: black;
+        font-size: 1vw;
+        line-height: 10px;
+    }
+}
+
+@media only screen and(min-width: 749px),
+screen and (max-width:750px) {
+    #nav {
+        gap: 21px;
+    }
+    #topnav img {
+        padding: 0 27px;
+    }
+    .link-acv a {
+        font-size: 1.4vw;
+    }
+    .card {
+        height: 54%;
+        width: 31%;
+    }
+    .overlay h4 {
+        font-size: 2.5vw;
+        margin-top: 12px;
+    }
+    .overlay p {
+        height: 55%;
+    }
+    .overlay p {
+        font-size: 1.2vw;
+    }
+    #green-div h1 {
+        width: 70%;
+        font-size: 2.5vw;
+    }
+    #page-4>h1 {
+        bottom: 12.5%;
+    }
+}
+
+@media only screen and(min-width: 699px),
+screen and (max-width:700px) {
+    #nav {
+        display: none;
+        position: absolute;
+        text-align: center;
+        padding: 30% 0px;
+        top: 0%;
+    }
+    #topnav img {
+        position: absolute;
+        top: 0%;
+        left: 3%;
+        padding: 12px 21px;
+    }
+    .link-acv {
+        padding: 18px;
+    }
+    .link-acv a {
+        font-size: 1.9vw;
+    }
+    #topnav {
+        background-color: black;
+        /* padding: 100% 0; */
+        flex-direction: column;
+        background-color: black;
+        justify-content: center;
+        align-items: center;
+        height: 90px;
+    }
+    #hamburger {
+        top: 0%;
+        right: 6%;
+        padding: 68% 0%;
+    }
+    #hamburger i {
+        display: block;
+        font-size: 4.2vw;
+        position: absolute;
+        top: 3%;
+        right: 3%;
+    }
+    #page-1 h1 {
+        font-size: 10vw;
+    }
+    #page-1 h2 {
+        font-size: 3.9vw;
+    }
+    #page-1 p {
+        font-size: 1.4vw;
+    }
+    #page-1 #arrow i {
+        font-size: 5vw;
+    }
+    #page-1 #arrow {
+        height: 115px;
+        width: 115px;
+    }
+    #scroller-1 h4 {
+        white-space: nowrap;
+        display: inline-block;
+        font-size: 14.4vw;
+    }
+    #about-us {
+        height: 100vh;
+        flex-direction: column;
+        margin-top: 14%;
+    }
+    #about-us img {
+        height: 200px;
+        width: 200px;
+        margin: 0px 0px;
+    }
+    #about-us-in {
+        width: 70%;
+    }
+    #about-us-in h3 {
+        font-size: 5.5vw;
+    }
+    #about-us-in p {
+        font-size: 1.5vw;
+    }
+    #cards-container {
+        height: 100vh;
+        margin-top: 15%
+    }
+    .card {
+        margin: 6px 0;
+        height: 30%;
+        width: 46%;
+    }
+    #cards-container {
+        height: 129vh;
+        align-items: center;
+        margin-top: 20%;
+        gap: 7%;
+        flex-direction: column
+    }
+    #card1 {
+        animation-name: newzoom;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+    }
+    #card2 {
+        animation-name: newzoom;
+        animation-delay: -2s;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+    }
+    #card3 {
+        animation-name: newzoom;
+        animation-delay: -1.5s;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+    }
+    @keyframes newzoom {
+        0% {
+            scale: 1;
+        }
+        50% {
+            scale: 1.1;
+        }
+        100% {
+            scale: 1;
+        }
+    }
+    .overlay h4 {
+        font-size: 4vw;
+        margin-top: 21px;
+    }
+    .overlay p {
+        height: 48%;
+    }
+    .overlay p {
+        font-size: 1.6vw;
+    }
+    #page-4>h1 {
+        bottom: 9.8%;
+    }
+    #page-3>p {
+        font-size: 2vw;
+    }
+    #f1 img {
+        height: 68px;
+    }
+}
+
+@media only screen and(min-width: 649px),
+screen and (max-width:650px) {
+    #page-3 #coln-1 {
+        height: 8%;
+        top: 31%;
+        left: 13%;
+    }
+    #page-3 #coln-2 {
+        height: 8%;
+        bottom: 31%;
+        right: 13%;
+    }
+    #hamburger i {
+        font-size: 4.5vw;
+        top: 3.5%;
+    }
+    #page-4>h1 {
+        bottom: 10.1%
+    }
+}
+
+@media only screen and(min-width: 599px),
+screen and (max-width:600px) {
+    #page-4>h1 {
+        bottom: 10.4%;
+    }
+    .elem-card {
+        height: 21%;
+        width: 26%;
+    }
+}
+
+@media only screen and(min-width: 549px),
+screen and (max-width:550px) {
+    #page-3 #coln-1 {
+        top: 32%;
+        left: 13.5%;
+    }
+    #page-3 #coln-2 {
+        bottom: 32%;
+        right: 13.5%;
+    }
+    #hamburger i {
+        font-size: 5vw;
+        top: 4%;
+    }
+    #green-div {
+        height: 21vh;
+    }
+    #page-4 {
+        height: 50vh;
+    }
+    #page-4>h1 {
+        bottom: 8.9%;
+    }
+    .elem-card {
+        height: 21%;
+        width: 26%;
+    }
+    #footer {
+        height: 26vh;
+    }
+    #f1 img {
+        height: 60px;
+    }
+    #f2 h1 {
+        font-size: 2.4vw;
+    }
+    #f3 h3 {
+        font-size: 2vw;
+    }
+    #f4 h4 {
+        font-size: 1.4vw;
+        line-height: 9px;
+    }
+}
+
+@media only screen and(min-width: 499px),
+screen and (max-width:500px) {
+    #page-1 h1 {
+        font-size: 11vw;
+    }
+    #page-1 h2 {
+        font-size: 4.4vw;
+    }
+    #page-1 p {
+        font-size: 1.6vw;
+    }
+    #about-us-in h3 {
+        font-size: 6vw;
+    }
+    #about-us-in p {
+        font-size: 1.7vw;
+    }
+    .link-acv a {
+        font-size: 2.4vw;
+    }
+    #page-3 #coln-1 {
+        top: 32%;
+        height: 7%;
+        left: 15%;
+    }
+    #page-3 #coln-2 {
+        bottom: 32%;
+        height: 7%;
+        right: 15%;
+    }
+}
+
+@media only screen and(min-width: 499px),
+screen and (max-width:500px) {
+    #topnav {
+        height: 78px;
+    }
+    #topnav img {
+        height: 58px;
+        padding-top: 7px;
+        /* padding: 7px 21px; */
+    }
+    #page-3 #coln-1 {
+        top: 36%;
+        height: 6%;
+        left: 15%;
+    }
+    #page-3 #coln-2 {
+        bottom: 36%;
+        height: 6%;
+        right: 15%;
+    }
+    #green-div {
+        height: 11vh;
+    }
+    #green-div h1 {
+        line-height: 18px;
+    }
+    #page-4>h1 {
+        bottom: 9%;
+    }
+    .card {
+        width: 60%;
+    }
+    #footer {
+        height: 18vh;
+    }
+}
+
+@media only screen and(min-width: 449px),
+screen and (max-width:450px) {
+    #hamburger {
+        right: 8%;
+    }
+    .card {
+        width: 68%;
+    }
+    #footer {
+        height: 17vh;
+    }
+}
+
+@media only screen and(min-width: 399px),
+screen and (max-width:400px) {
+    #hamburger i {
+        font-size: 5.5vw;
+        top: 5%;
+    }
+    #hamburger {
+        top: 0%;
+        right: 8%;
+    }
+    .card {
+        width: 73%;
+    }
+    #page-4>h1 {
+        bottom: 9.4%;
+    }
+    #green-div h1 {
+        line-height: 15px;
+    }
+}
+
+@media only screen and(min-width: 349px),
+screen and (max-width:350px) {
+    #hamburger i {
+        font-size: 6vw;
+        top: 6%;
+    }
+    #page-1 #arrow {
+        height: 94px;
+        width: 94px;
+    }
+    #page-1 #arrow i {
+        font-size: 9vw;
+    }
+    .link-acv a {
+        font-size: 3vw;
+    }
+    #about-us-in h3 {
+        font-size: 9vw;
+    }
+    #about-us-in p {
+        font-size: 2vw;
+        line-height: 14px;
+    }
+    #green-div {
+        height: 10vh;
+    }
+    #green-div h1 {
+        line-height: 13px;
+    }
+    .elem-card {
+        height: 16%;
+        width: 25%;
+    }
+    #footer {
+        height: 16vh;
+    }
+    #f1 img {
+        height: 40px;
+    }
+    #f4 h4 {
+        font-size: 1.2vw;
+        line-height: 5px;
+    }
+    #f2 h1 {
+        margin-bottom: 5px;
+    }
+    #f3 h3 {
+        margin-bottom: 6px;
+    }
+}
+
+
+/* @media only screen and(min-width: 349px),
+screen and (max-width:350px) {
+#page-4>h1 {
+    bottom: 9.5%;
+}
+.elem-card {
+    height: 16%;
+    width: 26%;
+}
+} */
+
+@media only screen and(min-width: 299px),
+screen and (max-width:300px) {
+    #page-4>h1 {
+        bottom: 9.6%;
+    }
+    .card {
+        width: 84%;
+    }
+    .elem-card {
+        height: 13%;
+        width: 26%;
+    }
+    #f1 img {
+        height: 29px;
+    }
+    #page-3 #coln-1 {
+        top: 38%;
+        height: 5%;
+        left: 17%;
+    }
+    #page-3 #coln-2 {
+        bottom: 38%;
+        height: 5%;
+        right: 17%;
+    }
+}
+
+@media only screen and(min-width: 699px),
+screen and (max-width:700px) {
+    #cursor {
+        display: none;
+    }
+    html,
+    body {
+        overflow-x: hidden;
+    }
+    body::-webkit-scrollbar {
+        background-color: #95C11E;
+        display: none;
+        width: 8px;
+    }
+    body::-webkit-scrollbar-thumb {
+        background-color: white;
+        border-radius: 50px;
+        display: none;
+    }
+}
